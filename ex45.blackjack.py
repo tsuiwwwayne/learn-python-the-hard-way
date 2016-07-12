@@ -124,11 +124,6 @@ class Blackjack(object):
             else:
                 pass
 
-            # player_value = self.get_hand_value(self.player_hand)
-            # dealer_value = self.get_hand_value(self.dealer_hand)
-            # print '*' * 20
-            # print player_value, dealer_value
-
             player_stand = False
             player_busted = False
 
@@ -187,9 +182,6 @@ class Blackjack(object):
         for i in range(0,2):
             self.player_hand.append(deck.pop(0))
             self.dealer_hand.append(deck.pop(0))
-        # print self.player_hand
-        # print self.dealer_hand
-        # print deck
 
     def show_table(self, show_hand):
         if show_hand:
@@ -298,15 +290,16 @@ class Blackjack(object):
         player_likely_to_bust = self.limit_hand_value - exposed_player_hand_value < 3
 
         dealer_busted = self.get_hand_value(self.dealer_hand) > self.limit_hand_value
-        dealer_likely_to_bust = self.limit_hand_value - dealer_hand_value < 2
+        dealer_likely_to_bust = self.limit_hand_value - dealer_hand_value < 3
 
         while not dealer_busted and not dealer_likely_to_bust and not player_likely_to_bust:
 
             dealer_hand_value = self.get_hand_value(self.dealer_hand)
 
-            if dealer_hand_value - exposed_player_hand_value < 7:
+            if dealer_hand_value - exposed_player_hand_value < 6:
                 self.hit(deck, self.dealer_hand)
                 self.show_table(False)
+                return self.dealer_decision(deck)
             else:
                 break
 
