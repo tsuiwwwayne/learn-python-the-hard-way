@@ -7,9 +7,9 @@ import random
 class Engine(object):
 
     def run(self):
-        print "-" * 30
+        print "-" * 35
         print "Welcome to Wayne's Blackjack table!"
-        print "-"  * 30
+        print "-"  * 35
         self.menu()
 
     def menu(self):
@@ -154,6 +154,7 @@ class Blackjack(object):
             self.dealer_decision(deck_of_cards)
 
             self.show_hand()
+            raw_input("\nPress Enter to Start Next Hand\n")
 
         self.show_score()
         self.finished()
@@ -190,12 +191,12 @@ class Blackjack(object):
 
     def show_table(self, show_hand):
         if show_hand:
-            print "Dealer have: ", self.dealer_hand
+            print "\nDealer have: ", self.dealer_hand
             print "Hand Value:", self.get_hand_value(self.dealer_hand)
             print "You have: ", self.player_hand
             print "Hand value:", self.get_hand_value(self.player_hand)
         else:
-            print "Dealer have: ['HIDDEN']", self.dealer_hand[1:len(self.dealer_hand)]
+            print "\nDealer have: ['HIDDEN']", self.dealer_hand[1:len(self.dealer_hand)]
             print "You have: ", self.player_hand
             print "Hand value:", self.get_hand_value(self.player_hand)
 
