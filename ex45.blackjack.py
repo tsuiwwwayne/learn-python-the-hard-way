@@ -7,9 +7,9 @@ import random
 class Engine(object):
 
     def run(self):
-        print "-" * 20
+        print "-" * 30
         print "Welcome to Wayne's Blackjack table!"
-        print "-"  * 20
+        print "-"  * 30
         self.menu()
 
     def menu(self):
@@ -46,10 +46,15 @@ class Rules(object):
 
     def show(self):
         print """
+        Objective: Beat the dealer by getting a count as close to 21 as possible, without going over 21.\n
         Rules:
-        \t1. Win
-        \t2. Win
-        \t3. Win
+        \t1. Card Values/Scoring - It is up to each individual player if an ace is worth 1 or 11.
+        \t2. Face cards are 10 and any other card is its pip value.
+        \t3. You'll be dealt two cards face up.
+        \t4. If you want another card to try and get you closer to 21, you 'Hit'.
+        \t5. To stick with what you've got, you 'Stand'.
+        \t6. If you're dealt an ace and 10 as your first two cards, that's a blackjack.
+        \t7. This is an automatic win for you unless the dealer gets the same. If this happens, it's called a push and no one wins.
         """
 
 class Blackjack(object):
